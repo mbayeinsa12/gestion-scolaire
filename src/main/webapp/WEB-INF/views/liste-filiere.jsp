@@ -1,4 +1,6 @@
-<%--
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="sn.isep.dbe.modele.Filiere" %>
+<%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: alndiaye
   Date: 30-04-2025
@@ -30,6 +32,7 @@
   <section class="student-list">
     <div class="list-header">
       <h2>Liste des filières</h2>
+      <a href="/filieres/ajouter" class="btn">+ Nouvelle filière</a>
     </div>
 
     <table>
@@ -44,62 +47,31 @@
       </thead>
 
       <tbody>
+<%--
+      <%
+        ArrayList<Filiere> filieres = (ArrayList<Filiere>) request.getAttribute("filieres");
+        for (Filiere filiere: filieres) {
+          %>
+
       <tr>
-        <td>1</td>
-        <td>DBE</td>
-        <td>Développement backend</td>
-        <td>MR. Mbaye</td>
-        <td>400</td>
+        <td><%=filiere.getId()%></td>
+        <td><%=filiere.getCode()%></td>
+        <td><%=filiere.getNom()%></td>
+        <td><%=filiere.getPrenomResponsable()%> <%=filiere.getNomResponsable()%></td>
+        <td><%=filiere.getCapacite()%></td>
       </tr>
-      <tr>
-        <td>1</td>
-        <td>DBE</td>
-        <td>Développement backend</td>
-        <td>MR. Mbaye</td>
-        <td>400</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>DBE</td>
-        <td>Développement backend</td>
-        <td>MR. Mbaye</td>
-        <td>400</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>DBE</td>
-        <td>Développement backend</td>
-        <td>MR. Mbaye</td>
-        <td>400</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>DBE</td>
-        <td>Développement backend</td>
-        <td>MR. Mbaye</td>
-        <td>400</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>DBE</td>
-        <td>Développement backend</td>
-        <td>MR. Mbaye</td>
-        <td>400</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>DBE</td>
-        <td>Développement backend</td>
-        <td>MR. Mbaye</td>
-        <td>400</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>DBE</td>
-        <td>Développement backend</td>
-        <td>MR. Mbaye</td>
-        <td>400</td>
-      </tr>
+
+      <% }%>--%>
+
+      <c:forEach items="${filieres}" var="filiere">
+        <tr>
+          <td>${filiere.id}</td>
+          <td>${filiere.code}</td>
+          <td>${filiere.nom}</td>
+          <td>${filiere.prenomResponsable} ${filiere.nomResponsable}</td>
+          <td>${filiere.capacite}</td>
+        </tr>
+      </c:forEach>
       </tbody>
     </table>
   </section>
