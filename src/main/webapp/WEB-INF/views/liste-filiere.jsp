@@ -39,10 +39,12 @@
       <thead>
       <tr>
         <th>ID</th>
+        <th>Code</th>
         <th>Nom</th>
         <th>Département</th>
         <th>Responsable</th>
         <th>Capacité</th>
+        <th>Actions</th>
       </tr>
       </thead>
 
@@ -68,8 +70,14 @@
           <td>${filiere.id}</td>
           <td>${filiere.code}</td>
           <td>${filiere.nom}</td>
+          <td>${filiere.departement}</td>
           <td>${filiere.prenomResponsable} ${filiere.nomResponsable}</td>
           <td>${filiere.capacite}</td>
+          <td class="actions">
+            <a class="btn-details">Détails</a>
+            <a href="${pageContext.request.contextPath}/filieres/modifier?id=${filiere.id}" class="btn-edit">Modifier</a>
+            <a class="btn-delete">Supprimer</a>
+          </td>
         </tr>
       </c:forEach>
       </tbody>

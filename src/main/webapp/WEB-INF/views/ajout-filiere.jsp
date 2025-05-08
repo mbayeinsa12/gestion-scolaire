@@ -66,7 +66,7 @@
 
             <div class="form-buttons">
                 <button type="submit" class="btn btn-primary">Ajouter</button>
-                <a class="btn btn-secondary">Annuler</a>
+                <a href="/filieres/lister" class="btn btn-secondary">Annuler</a>
             </div>
         </form>
     </section>

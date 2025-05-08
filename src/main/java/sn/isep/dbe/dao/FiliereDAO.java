@@ -37,7 +37,28 @@ public class FiliereDAO {
     }
 
     public Filiere findById(int id) {
-        return null;
+        Filiere filiere = null;
+
+        String sql = "select * from filiere where id = " + id;
+        try(Connection conn = ConnexionBD.getConnection()) {
+            PreparedStatement statement = conn.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                filiere = new Filiere();
+                filiere.setId(rs.getInt("id"));
+                filiere.setCode(rs.getString("code"));
+                filiere.setNom(rs.getString("nom"));
+                filiere.setDepartement(rs.getString("departement"));
+                filiere.setNomResponsable(rs.getString("nom_responsable"));
+                filiere.setPrenomResponsable(rs.getString("prenom_responsable"));
+                filiere.setCapacite(rs.getInt("capacite"));
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return filiere;
     }
 
     public Filiere save(Filiere filiere) {
@@ -59,7 +80,24 @@ public class FiliereDAO {
     }
 
     public Filiere update(Filiere filiere) {
-        return null;
+        String sql = "update filiere set code = ?, nom = ?, departement = ?, nom_responsable = ?, prenom_responsable = ?, capacite = ? where id = ?";
+        try (Connection conn = ConnexionBD.getConnection()){
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1, filiere.getCode());
+            statement.setString(2, filiere.getNom());
+            statement.setString(3, filiere.getDepartement());
+            statement.setString(4, filiere.getNomResponsable());
+            statement.setString(5, filiere.getPrenomResponsable());
+            statement.setInt(6, filiere.getCapacite());
+            statement.setInt(7, filiere.getId());
+
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return filiere;
     }
 
     public void delete(Filiere filiere) {
