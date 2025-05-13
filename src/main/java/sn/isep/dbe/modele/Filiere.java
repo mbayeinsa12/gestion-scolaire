@@ -9,8 +9,26 @@ public class Filiere {
     private String prenomResponsable;
     private Integer capacite;
 
+    // Constructeur par défaut
+    public Filiere() {}
 
+    // Constructeur avec ID
+    public Filiere(Integer id) {
+        this.id = id;
+    }
 
+    // Constructeur complet
+    public Filiere(Integer id, String code, String nom, String departement, String nomResponsable, String prenomResponsable, Integer capacite) {
+        this.id = id;
+        this.code = code;
+        this.nom = nom;
+        this.Departement = departement;
+        this.nomResponsable = nomResponsable;
+        this.prenomResponsable = prenomResponsable;
+        this.capacite = capacite;
+    }
+
+    // Getters et Setters
     public Integer getCapacite() {
         return capacite;
     }

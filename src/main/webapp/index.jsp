@@ -9,10 +9,10 @@
         <nav>
             <ul>
                 <li><a href="" class="active">Accueil</a></li>
-                <li><a href="">Etudiants</a></li>
-                <li><a href="">Cours</a></li>
+                <li><a href="etudiants/lister">Etudiants</a></li>
+                <li><a href="/cours/lister">Cours</a></li>
                 <li><a href="/filieres/lister">Filières</a></li>
-                <li><a href="">Notes</a></li>
+                <li><a href="/notes/lister">Notes</a></li>
             </ul>
         </nav>
     </header>

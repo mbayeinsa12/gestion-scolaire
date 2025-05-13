@@ -100,7 +100,17 @@ public class FiliereDAO {
         return filiere;
     }
 
-    public void delete(Filiere filiere) {
 
+    public void delete(int id) {
+        String sql = "DELETE FROM filiere WHERE id = ?";
+
+        try (Connection conn = ConnexionBD.getConnection()) {
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setInt(1, id);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
+
 }

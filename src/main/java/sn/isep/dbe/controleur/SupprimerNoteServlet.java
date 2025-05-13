@@ -1,0 +1,32 @@
+package sn.isep.dbe.controleur;
+
+import sn.isep.dbe.service.NoteService;
+import sn.isep.dbe.modele.Note;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.*;
+import java.io.IOException;
+
+@WebServlet("/notes/supprimer")
+public class SupprimerNoteServlet extends HttpServlet {
+    private NoteService noteService;
+
+    @Override
+    public void init() throws ServletException {
+        noteService = new NoteService();
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String idParam = req.getParameter("id");
+        if (idParam != null) {
+            int id = Integer.parseInt(idParam);
+            Note note = noteService.getNoteById(id);
+            if (note != null) {
+                noteService.supprimerNote(note);
+            }
+        }
+        resp.sendRedirect(req.getContextPath() + "/notes/lister");
+    }
+}

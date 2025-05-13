@@ -32,6 +32,10 @@ public class FiliereService {
         Filiere result = filiereDAO.update(filiere);
         return result;
     }
+    public void supprimerFiliere(int id) {
+        filiereDAO.delete(id);
+    }
+
 
     // supprimer une filiere
     // etc

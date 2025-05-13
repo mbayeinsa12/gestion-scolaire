@@ -74,9 +74,10 @@
           <td>${filiere.prenomResponsable} ${filiere.nomResponsable}</td>
           <td>${filiere.capacite}</td>
           <td class="actions">
-            <a class="btn-details">Détails</a>
+            <a class="btn-details" href="/filieres/details?id=${filiere.id}">Détails</a>
             <a href="${pageContext.request.contextPath}/filieres/modifier?id=${filiere.id}" class="btn-edit">Modifier</a>
-            <a class="btn-delete">Supprimer</a>
+            <a class="btn-delete" href="/filieres/supprimer?id=${filiere.id}">Supprimer</a>
+
           </td>
         </tr>
       </c:forEach>
